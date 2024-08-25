@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola!</title>
+    <link href="https://fonts.cdnfonts.com/css/public-pixel" rel="stylesheet">
+    <link rel="icon" href="/cat.png" type="image/x-icon">        
+    <style>
+        /* Existing styles */
+        .body-no-header {
+            font-family: 'Public Pixel', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+            background-color: #c4aef1;
+        }
+
+        @import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@300;700;900&display=swap");
+
+        .body-no-header {
+          font-family: "Exo 2", sans-serif;
+          background: rgb(63, 161, 251);
+          background: linear-gradient(142deg, rgb(201, 229, 255) 0%, rgba(252, 70, 168, 1) 100%);
+        }
+
+        h1 {
+            font-family: 'Public Pixel', sans-serif;     
+            color: rgb(51, 51, 51);                                          
+        }
+
+        .typing-effect {
+          overflow: hidden;
+          border-right: 0.15em solid rgba(255, 255, 255, 0.75);
+          white-space: nowrap;
+          width: 0;
+          animation: typing 3s steps(20, end) forwards, blink 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+          from { width: 0; }
+          to { width: 100%; }
+        }
+
+        @keyframes blink {
+          from { border-right-color: rgba(255, 255, 255, 0.75); }
+          to { border-right-color: transparent; }
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            z-index: 2;
+        }
+
+        .thumbnail {
+            width: 3.5em;
+            height: 3.5em;
+            margin: 0 10px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .thumbnail:hover {
+            transform: scale(1.5);
+        }
+
+        .reveal-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            z-index: 2;
+        }
+
+        .reveal-image {
+            max-width: 300px;
+            max-height: 300px;
+            display: none;
+            border-radius: 12px;
+        }
+
+        .moving-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .animated-square {
+            width: 30em;
+            height: 30em;
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.977);
+            animation: pulse 3s infinite ease-in-out, colorChange 6s infinite alternate;
+        }
+
+        .nai-txt {
+            font-family: 'Public Pixel', sans-serif;
+            color: white;
+            z-index: 9;
+            font-size: 0.7em;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes colorChange {
+            0% {
+                background-color: rgba(223, 174, 255, 0.8);
+            }
+            50% {
+                background-color: rgba(255, 161, 219, 0.8);
+            }
+            100% {
+                background-color: rgba(255, 182, 193, 0.8);
+            }
+        }
+
+        /* New star background styles */
+        .star-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; /* Behind other content */
+            pointer-events: none;
+            overflow: hidden;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 20%, transparent 20%) repeat;
+            background-size: 1em 1em;
+            animation: twinkle 0.5s linear infinite;
+        }
+
+        @keyframes twinkle {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 0 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="typing-effect">★ Custom your Nai! ★</h1>
+    </header>
+    <marquee behavior="scroll" direction="left" style="color: #a6cdff; font-family: 'Public Pixel', sans-serif;">Te quiero ★ Te quiero ★ Te quiero ★ Te quiero ★ Te quiero ★ Te quiero ★</marquee>
+    <div class="body-no-header">
+        <div class="moving-background">
+            <div class="animated-square"></div>
+        </div>
+
+        <div class="star-background"></div> <!-- Added star background -->
+
+        <div class="image-container">
+            <img src="cat.png" alt="Cat 1" id="cat1" class="thumbnail">
+            <img src="cat2.png" alt="Cat 2" id="cat2" class="thumbnail">
+            <img src="cat3.png" alt="Cat 3" id="cat3" class="thumbnail">
+            <img src="cat4.png" alt="Cat 4" id="cat4" class="thumbnail">
+            <img src="cat5.png" alt="Cat 5" id="cat5" class="thumbnail">
+        </div>
+
+        <div class="reveal-container">
+            <img src="nai-base.png" alt="Nai Base 1" id="nai-base1" class="reveal-image">
+            <img src="nai-base2.png" alt="Nai Base 2" id="nai-base2" class="reveal-image">
+            <img src="nai-base3.png" alt="Nai Base 3" id="nai-base3" class="reveal-image">
+            <img src="nai-base4.png" alt="Nai Base 4" id="nai-base4" class="reveal-image">
+            <img src="nai-base5.png" alt="Nai Base 5" id="nai-base5" class="reveal-image">
+        </div>
+        <p class="nai-txt">*Click on the gatitos to reveal pufis</p>
+    </div>
+    <p style="color: rgb(83, 83, 83); font-family: 'Public Pixel', sans-serif;" >Made with love by Lore</p>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cats = document.querySelectorAll('.thumbnail');
+            const naiBases = document.querySelectorAll('.reveal-image');
+
+            // Hide all nai-base images initially
+            naiBases.forEach(image => image.style.display = 'none');
+
+            // Add click event to each cat image
+            cats.forEach((cat, index) => {
+                cat.addEventListener('click', function() {
+                    // Hide all nai-base images
+                    naiBases.forEach(image => image.style.display = 'none');
+                    
+                    // Display the corresponding nai-base image
+                    naiBases[index].style.display = 'block';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
